@@ -19,5 +19,13 @@ module Draper
     def default_query_methods_strategy=(strategy)
       @@default_query_methods_strategy = strategy
     end
+
+    def rails_api_compatibility
+      @@rails_api_compatibility ||= false
+    end
+
+    def rails_api_compatibility=(boolean)
+      @@rails_api_compatibility = boolean
+    end
   end
 end

@@ -34,7 +34,10 @@ module Draper
 
   def self.setup_action_controller(base)
     base.class_eval do
-      include Draper::Compatibility::ApiOnly if base == ActionController::API
+      if base == ActionController::API && Draper.rails_api_compatibility
+        include Draper::Compatibility::ApiOnly
+      end
+
       include Draper::ViewContext
       extend  Draper::HelperSupport
       extend  Draper::DecoratesAssigned

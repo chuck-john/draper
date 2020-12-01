@@ -391,6 +391,18 @@ Draper.configure do |config|
 end
 ```
 
+### Rails API Compatibility
+Running Rails in "API only" mode does not include the `ActionView::Rendering` module, which Draper
+relies on for accessing the view context. As a work around, a configuration flag is available for 
+Rails 5 applications running in this mode since the default behavior of `render_to_body` is
+overridden upon installing the `draper` gem.
+
+```ruby
+Draper.configure do |config|
+  config.rails_api_compatibility = true
+end
+```
+
 ## Testing
 
 Draper supports RSpec, MiniTest::Rails, and Test::Unit, and will add the
