@@ -13,7 +13,7 @@ module Draper
         expect(base.included_modules).to include(Draper::Compatibility::ApiOnly)
       end
 
-      it 'does not include api only compatibility if base ActionController::Base' do
+      it 'does not include api only compatibility if base is ActionController::Base' do
         base = ActionController::Base
 
         Draper.setup_action_controller(base)
